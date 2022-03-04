@@ -1,0 +1,113 @@
+<form [formGroup]="userApp" (ngSubmit)="onSubmit(userApp)" class="log-in" autocomplete="off" >
+    
+    <div class="container">
+        <h2>Signup Form</h2>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-6">
+                    <label for="fname" >First Name</label>
+                  <input type="text" class="form-control" id="fname" placeholder="Enter First name" name="fname"  formControlName="firstName"required>
+                </div>
+                <div class="col-lg-6">
+                    <label for="lName">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Enter Last Name" name="lName" formControlName="lastName" required>
+                </div>
+              </div>
+    
+           
+                <div class="row">
+                  <div class="col-lg-6">
+                      <label for="email" >E-mail</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter email @gmail.com" name="email"
+                      formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors, '': f.email.touched && !f.email.errors }"
+                     >
+                     
+                </div>
+                  <div class="col-lg-6">
+                      <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter password" name="pswd" formControlName="password"required >
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="phone no" >Phone Number</label>
+                      <input type="tel" class="form-control" id="phone" placeholder="0300-0000000" name="phone no"  formControlName="phoneNo"required>  
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="adress">Address</label>
+                      <input type="address" class="form-control" placeholder="Enter your Address" name="Address" formControlName="address" required>
+                    </div>
+                  </div>
+    
+                  <div class="row">
+                    <div class="col-lg-6">
+                        <label for="pcode" >Postal code</label>
+                      <input type="text" class="form-control" id="pcode" placeholder="Enter your postal code" name="pcode"  formControlName="pcode"required>  
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="Country">Country</label>
+                        <br>
+                      <!-- <input type="text" class="form-control" placeholder="Enter your Country" name="Country" > -->
+                      <select class="form-control" name="Country" id="Country" formControlName="country">
+                        <option value="pakistan">Pakistan</option>
+                        <option value="india">India</option>
+                        <option value="japan">Japan</option>
+                        <option value="Uk">Uk</option>
+                      </select>
+                      <br><br>
+                      
+                    </div>
+                  </div>
+    <div class="row">
+        <div class="col-lg-12">
+        <button type="submit" class="btn btn-primary">Login </button>
+        
+    
+    </div>
+    </div>
+      </div>   
+    </div>
+    </form>
+    <div class="container mt-5" style="margin-left: 20px;">
+        <div class="row">
+    <div class="col-lg-2">
+        <span>Name</span>
+    </div>
+    <div class="col-lg-2">
+    <span>Email</span>
+    </div>
+    <div class="col-lg-2">
+        <span>phoneNo</span>
+        </div>
+        <div class="col-lg-2">
+            <span>Address</span>
+            </div>
+            <div class="col-lg-2">
+                <span>postal code</span>
+                </div>
+                
+    
+    </div>
+    <div class="row" *ngFor="let user of userList">
+        <div class="col-lg-2">
+            <span>{{user.firstName}} {{user.lastName}}</span>
+        </div>
+        <div class="col-lg-2">
+            <span>{{user.email}}</span>
+        </div>
+        <div class="col-lg-2">
+            <span>{{user.phoneNo}}</span>
+        </div>
+        <div class="col-lg-2">
+            <span>{{user.pcode}}</span>
+        </div>
+        <div class="col-lg-2">
+            <span>{{user.address}}</span>
+        </div>
+                
+    
+    
+    
+    </div>
+    
+    </div>
